@@ -108,3 +108,17 @@ Route::get('dashboardAdmin/browse/year/{year}/show', 'BrowseController@browseByY
 Route::get('dashboardAdmin/browse/category', 'BrowseController@indexCategoryAdmin')->middleware('auth');
 Route::post('dashboardAdmin/browse/category/byCategory', 'BrowseController@catchCategoryAdmin')->middleware('auth');
 Route::get('dashboardAdmin/browse/category/{category}/show', 'BrowseController@browseByCategoryAdmin')->middleware('auth');
+
+
+Route::get('dashboardAdmin/report/topCategory', 'ReportsController@topCategoryAdmin')->middleware('auth');
+
+Route::get('dashboardAdmin/report/topCategory/getTopCategories', 'ReportsController@getTopCategories')->middleware('auth');
+
+
+Route::get('dashboardAdmin/report/topDownloads', 'ReportsController@topDownloadsAdmin')->middleware('auth');
+
+Route::get('dashboardAdmin/report/topDownloads/getTopTopDownloads', 'ReportsController@getTopTopDownloads')->middleware('auth');
+
+Route::get('dashboardAdmin/report/topViews', 'ReportsController@topViewsAdmin')->middleware('auth');
+
+Route::get('dashboardAdmin/report/topViews/getTopTopViews', 'ReportsController@getTopTopViews')->middleware('auth');

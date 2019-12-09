@@ -2,33 +2,38 @@
 
 @section('content')
 
+<div class="row">
+
 <?php 
-	$currently_selected = date('Y');
-	$earliest_year = 1970;
-	$latest_year = date('Y');
+  $currently_selected = date('Y');
+  $earliest_year = 1970;
+  $latest_year = date('Y');
 ?>
 
+<div class="col-12">
 <div class="form-group">
     <label for="email">Masukkan Tahun:</label>
     <form action="/dashboardAdmin/browse/year/byYear/" method="post" class="form-inline">
-    	@csrf
-	    <select name="year" class="form-control col-md-2 mr-4">
-		<?php foreach( range( $latest_year ,$earliest_year) as $i) { ?>
-			<option value="{{$i}}" <?php if($i === $currently_selected){ echo "selected='selected'";}?> class="form-control">{{$i}}</option>
-		<?php } ?>
-		</select>
-		<input type="submit" name="submit" value="Browse" class="btn btn-success btn-sm col-md-1">
-	</form>
+      @csrf
+      <select name="year" class="form-control col-md-2 mr-4">
+    <?php foreach( range( $latest_year ,$earliest_year) as $i) { ?>
+      <option value="{{$i}}" <?php if($i === $currently_selected){ echo "selected='selected'";}?> class="form-control">{{$i}}</option>
+    <?php } ?>
+    </select>
+    <input type="submit" name="submit" value="Browse" class="btn btn-success btn-sm col-md-1">
+  </form>
+</div>
 </div>
 
 @foreach($data as $row)
+<div class="col-3">
     <div class="card border-light mb-3 mx-4" style="max-width: 18rem; width: 18rem;">
       <div class="card-header bg-transparent border-light">{{$row->name_cat}}</div>
       <div class="card-body">
         <h5 class="card-title">{{$row->judul}}</h5>
         <p class="card-text">{{$row->abstrak}}</p> <br/>
         <!-- <a href="{{ URL::to('/') }}/files/{{$row->file}}"  target="_blank">{{$row->file}}</a> -->
-        <a href="/home/{{$row->id}}/showUpload" class="btn btn-primary">Show</a>
+        <a href="/dashboardAdmin/home/{{$row->id}}/showUpload" class="btn btn-primary">Show</a>
       </div>
       <?php 
         $created_at_ = $row->created_at;
@@ -63,10 +68,11 @@
       <a href="{{ URL::to('/') }}/files/{{$row->file}}"  target="_blank">{{$row->file}}</a>
       <p><a class="btn btn-secondary" href="/home/{{$row->id}}/show" role="button">View details &raquo;</a></p>
     </div> -->
+</div>
     @endforeach
-
+<div class="col-12">
     @if($data->total() == 0)
-    	<p class="text-danger">Data tidak ditemukan</p>
+      <p class="text-danger">Data tidak ditemukan</p>
     @endif
     <br/>
     <div class="col-md-12">
@@ -75,6 +81,8 @@
       <!-- Data Per Halaman : {{ $data->perPage() }} <br/> -->
       {{ $data->links() }}
     </div>
+</div>
+</div>
 
 
 @endsection

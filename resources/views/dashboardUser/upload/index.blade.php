@@ -40,19 +40,16 @@
 				<td>{{$row->pengarang}}</td>
 				<td>
 					<div class="row">
-						<div class="col-3">
+							<div class="col-1"></div>
 							<a href="upload/{{$row->id}}/show" class="btn btn-primary btn-sm">Show</a>
-						</div>
-						<div class="col-3">
+							&nbsp;&nbsp;
 							<a href="upload/{{$row->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
-						</div>
-						<div class="col-3">
+							&nbsp;&nbsp;
 							<form action="/dashboardUser/{{auth()->user()->id}}/upload/{{$row->id}}/destroy" method="POST">
 								@csrf
 								<!-- @method('DELETE') -->
 								<button type="submit" class="btn btn-danger btn-sm">Delete</button>
 							</form>
-						</div>
 					</div>
 				</td>
 			</tr>

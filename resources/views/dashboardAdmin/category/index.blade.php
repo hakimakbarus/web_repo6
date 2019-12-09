@@ -23,7 +23,7 @@
 			<tr align="center">
 				<th width="25%">Name</th>
 				<th width="55%">Description</th>
-				<th width="20%">Action</th>
+				<th>Action</th>
 			</tr>
 			@foreach($data as $row)
 			<tr>
@@ -31,19 +31,16 @@
 				<td>{{$row->desc_cat}}</td>
 				<td>
 					<div class="row">
-					<div class="col-3">
+						<div class="col-1"></div>
 						<a href="category/{{$row->id}}/show" class="btn btn-primary btn-sm">Show</a>
-					</div>
-					<div class="col-3">
+						&nbsp;&nbsp;
 						<a href="category/{{$row->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
-					</div>
-					<div class="col-3">
+						&nbsp;&nbsp;
 						<form action="/dashboardAdmin/category/{{$row->id}}/destroy" method="POST">
 							@csrf
 							<!-- @method('DELETE') -->
 							<button type="submit" class="btn btn-danger btn-sm">Delete</button>
 						</form>
-					</div>
 					</div>
 				</td>
 			</tr>

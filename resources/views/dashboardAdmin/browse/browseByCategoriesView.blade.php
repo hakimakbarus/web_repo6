@@ -2,27 +2,34 @@
 
 @section('content')
 
+<div class="row">
+
+<div class="col-12">
+
 <div class="form-group">
     <label for="email">Masukkan Category:</label>
     <form action="/dashboardAdmin/browse/category/byCategory/" method="post" class="form-inline">
-    	@csrf
-	    <select name="id_cat" class="form-control mr-3">
-			@foreach($data_cat as $row)
-				<option value="{{$row->id}}" class="form-control">{{$row->name_cat}}</option>
-			@endforeach
-		</select>
-		<input type="submit" name="submit" value="Browse" class="btn btn-success btn-sm col-md-1">
-	</form>
+      @csrf
+      <select name="id_cat" class="form-control mr-3">
+      @foreach($data_cat as $row)
+        <option value="{{$row->id}}" class="form-control">{{$row->name_cat}}</option>
+      @endforeach
+    </select>
+    <input type="submit" name="submit" value="Browse" class="btn btn-success btn-sm col-md-1">
+  </form>
 </div>
 
-	@foreach($data as $row)
+</div>
+
+  @foreach($data as $row)
+  <div class="col-3">
     <div class="card border-light mb-3 mx-4" style="max-width: 18rem; width: 18rem;">
       <div class="card-header bg-transparent border-light">{{$row->name_cat}}</div>
       <div class="card-body">
         <h5 class="card-title">{{$row->judul}}</h5>
         <p class="card-text">{{$row->abstrak}}</p> <br/>
         <!-- <a href="{{ URL::to('/') }}/files/{{$row->file}}"  target="_blank">{{$row->file}}</a> -->
-        <a href="/home/{{$row->id}}/showUpload" class="btn btn-primary">Show</a>
+        <a href="/dashboardAdmin/home/{{$row->id}}/showUpload" class="btn btn-primary">Show</a>
       </div>
       <?php 
         $created_at_ = $row->created_at;
@@ -57,10 +64,12 @@
       <a href="{{ URL::to('/') }}/files/{{$row->file}}"  target="_blank">{{$row->file}}</a>
       <p><a class="btn btn-secondary" href="/home/{{$row->id}}/show" role="button">View details &raquo;</a></p>
     </div> -->
+    </div>
     @endforeach
 
+    <div class="col-12">
     @if($data->total() == 0)
-    	<p class="text-danger">Data tidak ditemukan</p>
+      <p class="text-danger">Data tidak ditemukan</p>
     @endif
     <br/>
     <div class="col-md-12">
@@ -69,6 +78,8 @@
       <!-- Data Per Halaman : {{ $data->perPage() }} <br/> -->
       {{ $data->links() }}
     </div>
+    </div>
 
+</div>
 
 @endsection

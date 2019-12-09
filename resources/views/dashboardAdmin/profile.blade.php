@@ -33,7 +33,13 @@
 					{{csrf_field()}}
 				  <div class="form-group">	
 					<!-- <a href="{{ URL::to('/') }}/images/{{$user->foto}}">aaa</a> -->
-				    <img src="{{ URL::to('/') }}/images/{{$user->foto}}" alt="Foto" width="100">	
+					<?php 
+						if($user->foto!=""){
+					?>
+				    	<img src="{{ URL::to('/') }}/images/{{$user->foto}}"  class="img-thumbnail" alt="Foto" width="200">
+				    <?php } else { ?>
+				    	<img src="{{ URL::to('/') }}/images/default_foto.png"  class="img-thumbnail" alt="Foto" width="200">
+				    <?php } ?>	
 					<input type="hidden" name="hidden_image" value="{{$user->foto}}">
 					<input type="file" name="foto">			  
 				  </div>

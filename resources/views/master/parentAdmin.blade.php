@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Repository Kelompok 6</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+	<!-- Chart -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+	<!-- endChart -->
+
 </head>
 
 <?php 
@@ -62,6 +68,19 @@ if(auth()->user()->id_role != 1){
 	        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 	          <a class="dropdown-item" href="/dashboardAdmin/browse/year">By Years</a>
 	          <a class="dropdown-item" href="/dashboardAdmin/browse/category">By Category</a>
+	          <!-- <div class="dropdown-divider"></div>
+	          <a class="dropdown-item" href="#">Something else here</a> -->
+	        </div>
+	      </li>
+
+	      <li class="nav-item dropdown">
+	        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	          Reports
+	        </a>
+	        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+	          <a class="dropdown-item" href="/dashboardAdmin/report/topCategory">Top Categories</a>
+	          <a class="dropdown-item" href="/dashboardAdmin/report/topViews">Top Views</a>
+	          <a class="dropdown-item" href="/dashboardAdmin/report/topDownloads">Top Downloads</a>
 	          <!-- <div class="dropdown-divider"></div>
 	          <a class="dropdown-item" href="#">Something else here</a> -->
 	        </div>

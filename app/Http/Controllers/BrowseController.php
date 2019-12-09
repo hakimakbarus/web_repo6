@@ -17,7 +17,7 @@ class BrowseController extends Controller
     }
 
     public function browseByYearHome($year){
-    	$data = \App\Upload::latest()->join('categories', 'categories.id', '=', 'uploads.id_cat')->select('uploads.*', 'categories.name_cat')->where('year',$year)->paginate(6);
+    	$data = \App\Upload::latest()->join('categories', 'categories.id', '=', 'uploads.id_cat')->select('uploads.*', 'categories.name_cat')->where('year',$year)->paginate(4);
     	return view('browseByYearsView', compact('data'));
     } 
 
@@ -32,7 +32,7 @@ class BrowseController extends Controller
 
     public function browseByCategoryHome($id_cat){
     	$data_cat = \App\Category::all();
-    	$data = \App\Upload::latest()->join('categories', 'categories.id', '=', 'uploads.id_cat')->select('uploads.*', 'categories.name_cat')->where('id_cat',$id_cat)->paginate(6);
+    	$data = \App\Upload::latest()->join('categories', 'categories.id', '=', 'uploads.id_cat')->select('uploads.*', 'categories.name_cat')->where('id_cat',$id_cat)->paginate(4);
     	return view('browseByCategoriesView', compact('data'), compact('data_cat'));
     }
 
@@ -49,7 +49,7 @@ class BrowseController extends Controller
     }
 
     public function browseByYearUser($year){
-        $data = \App\Upload::latest()->join('categories', 'categories.id', '=', 'uploads.id_cat')->select('uploads.*', 'categories.name_cat')->where('year',$year)->paginate(6);
+        $data = \App\Upload::latest()->join('categories', 'categories.id', '=', 'uploads.id_cat')->select('uploads.*', 'categories.name_cat')->where('year',$year)->paginate(4);
         return view('dashboardUser.browse.browseByYearsView', compact('data'));
     } 
 
@@ -64,7 +64,7 @@ class BrowseController extends Controller
 
     public function browseByCategoryUser($id_cat){
         $data_cat = \App\Category::all();
-        $data = \App\Upload::latest()->join('categories', 'categories.id', '=', 'uploads.id_cat')->select('uploads.*', 'categories.name_cat')->where('id_cat',$id_cat)->paginate(6);
+        $data = \App\Upload::latest()->join('categories', 'categories.id', '=', 'uploads.id_cat')->select('uploads.*', 'categories.name_cat')->where('id_cat',$id_cat)->paginate(4);
         return view('dashboardUser.browse.browseByCategoriesView', compact('data'), compact('data_cat'));
     }
 
@@ -81,7 +81,7 @@ class BrowseController extends Controller
     }
 
     public function browseByYearAdmin($year){
-        $data = \App\Upload::latest()->join('categories', 'categories.id', '=', 'uploads.id_cat')->select('uploads.*', 'categories.name_cat')->where('year',$year)->paginate(6);
+        $data = \App\Upload::latest()->join('categories', 'categories.id', '=', 'uploads.id_cat')->select('uploads.*', 'categories.name_cat')->where('year',$year)->paginate(4);
         return view('dashboardAdmin.browse.browseByYearsView', compact('data'));
     } 
 
@@ -96,7 +96,7 @@ class BrowseController extends Controller
 
     public function browseByCategoryAdmin($id_cat){
         $data_cat = \App\Category::all();
-        $data = \App\Upload::latest()->join('categories', 'categories.id', '=', 'uploads.id_cat')->select('uploads.*', 'categories.name_cat')->where('id_cat',$id_cat)->paginate(6);
+        $data = \App\Upload::latest()->join('categories', 'categories.id', '=', 'uploads.id_cat')->select('uploads.*', 'categories.name_cat')->where('id_cat',$id_cat)->paginate(4);
         return view('dashboardAdmin.browse.browseByCategoriesView', compact('data'), compact('data_cat'));
     }
 

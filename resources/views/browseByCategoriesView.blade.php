@@ -2,6 +2,10 @@
 
 @section('content')
 
+<div class="row">
+
+<div class="col-12">
+
 <div class="form-group">
     <label for="email">Masukkan Category:</label>
     <form action="/browse/category/byCategory/" method="post" class="form-inline">
@@ -15,7 +19,10 @@
 	</form>
 </div>
 
+</div>
+
 	@foreach($data as $row)
+  <div class="col-3">
     <div class="card border-light mb-3 mx-4" style="max-width: 18rem; width: 18rem;">
       <div class="card-header bg-transparent border-light">{{$row->name_cat}}</div>
       <div class="card-body">
@@ -57,8 +64,10 @@
       <a href="{{ URL::to('/') }}/files/{{$row->file}}"  target="_blank">{{$row->file}}</a>
       <p><a class="btn btn-secondary" href="/home/{{$row->id}}/show" role="button">View details &raquo;</a></p>
     </div> -->
+    </div>
     @endforeach
 
+    <div class="col-12">
     @if($data->total() == 0)
     	<p class="text-danger">Data tidak ditemukan</p>
     @endif
@@ -69,6 +78,8 @@
       <!-- Data Per Halaman : {{ $data->perPage() }} <br/> -->
       {{ $data->links() }}
     </div>
+    </div>
 
+</div>
 
 @endsection
