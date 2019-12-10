@@ -56,12 +56,13 @@
 			@endforeach
 			
 		</table>
-		<div class="col-md-12">
-		  Halaman : {{ $data->currentPage() }} <br/>
-		  <!-- Jumlah Data : {{ $data->total() }} <br/> -->
-		  <!-- Data Per Halaman : {{ $data->perPage() }} <br/> -->
-		  {{ $data->links() }}
-		</div>
+		<br/>
+	    <div class="col-md-12">
+	      Halaman : {{ $data->currentPage() }} <br/>
+	      <!-- Jumlah Data : {{ $data->total() }} <br/> -->
+	      <!-- Data Per Halaman : {{ $data->perPage() }} <br/> -->
+	      {{ $data->links() }}
+	    </div>
 	</div>
 
 </div>

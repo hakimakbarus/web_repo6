@@ -162,7 +162,9 @@ class UploadsController extends Controller
     public function indexAdmin()
     {
         //
-        $data = \App\Upload::latest()->join('users', 'users.id', '=', 'uploads.id_user')->join('categories', 'categories.id', '=' ,'uploads.id_cat')->join('roles', 'roles.id', '=', 'users.id')->select('uploads.*', 'users.name', 'users.id', 'categories.name_cat', 'roles.name_role')->paginate(5);
+        $data = \App\Upload::latest()->join('users', 'users.id', '=', 'uploads.id_user')->join('categories', 'categories.id', '=' ,'uploads.id_cat')->join('roles', 'roles.id', '=', 'users.id_role')->select('uploads.*', 'users.name', 'users.id', 'categories.name_cat', 'roles.name_role')->paginate(5);
+        // dd($data);
+        // $data = \App\Upload::latest()->join('users', 'users.id', '=', 'uploads.id_user')->join('categories', 'categories.id', '=' ,'uploads.id_cat')->select('uploads.*','users.name', 'users.id', 'categories.name_cat')->paginate(4);
         return view('dashboardAdmin.upload.index', compact('data'))
                 ->with('i', (request()->input('page', 1) - 1) * 5);
     }
