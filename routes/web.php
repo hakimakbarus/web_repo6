@@ -122,3 +122,11 @@ Route::get('dashboardAdmin/report/topDownloads/getTopTopDownloads', 'ReportsCont
 Route::get('dashboardAdmin/report/topViews', 'ReportsController@topViewsAdmin')->middleware('auth');
 
 Route::get('dashboardAdmin/report/topViews/getTopTopViews', 'ReportsController@getTopTopViews')->middleware('auth');
+
+
+// user
+Route::get('dashboardAdmin/user', 'UsersCrudController@index')->middleware('auth');
+Route::get('/dashboardAdmin/user/{id}/show', 'UsersCrudController@show')->middleware('auth');
+Route::get('/dashboardAdmin/user/{id}/edit', 'UsersCrudController@edit')->middleware('auth');
+Route::post('/dashboardAdmin/user/{id}/update', 'UsersCrudController@update')->middleware('auth');
+Route::post('/dashboardAdmin/user/{id}/destroy', 'UsersCrudController@destroy')->middleware('auth');

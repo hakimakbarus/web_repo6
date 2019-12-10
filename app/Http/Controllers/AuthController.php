@@ -17,9 +17,9 @@ class AuthController extends Controller
         if(Auth::attempt($request->only('email','password'))){
         	$data = \App\User::where('email', '=', $request->email)->get();
         	if($data[0]->id_role == 1){
-        		return redirect('/dashboardAdmin');	
+        		return redirect('/dashboardAdmin/home');	
         	}else{
-        		return redirect('/dashboardUser');
+        		return redirect('/dashboardUser/home');
         	}
         	//return redirect('/dashboardAdmin');	
             //dd($data);

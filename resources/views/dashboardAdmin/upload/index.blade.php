@@ -48,7 +48,7 @@
 							<form action="/dashboardAdmin/{{auth()->user()->id}}/upload/{{$row->id}}/destroy" method="POST">
 								@csrf
 								<!-- @method('DELETE') -->
-								<button type="submit" class="btn btn-danger btn-sm">Delete</button>
+								<button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus {{$row->judul}}')">Delete</button>
 							</form>
 					</div>
 				</td>

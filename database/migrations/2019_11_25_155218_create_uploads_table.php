@@ -16,7 +16,7 @@ class CreateUploadsTable extends Migration
         Schema::create('uploads', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('id_user')->nullable();
-            $table->string('id_cat')->nullable();
+            $table->integer('id_cat')->nullable();
             $table->string('judul')->nullable();
             $table->string('file')->nullable();
             $table->string('pengarang')->nullable();

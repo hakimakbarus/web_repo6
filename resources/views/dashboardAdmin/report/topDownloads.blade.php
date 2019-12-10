@@ -5,7 +5,7 @@
 
 <div class="row">
 
-   	<div class="col-md-6 col-md-offset-1">
+   	<div class="col-md-8 col-md-offset-1">
        	<div class="panel panel-default">
            <div class="panel-heading"><b>Top Users Downloaded File </b></div>
            <div class="panel-body">
@@ -38,9 +38,9 @@ $(document).ready(function(){
         var myChart = new Chart(ctx, {
           type: 'bar',
           data: {
-              labels:USER,
+              labels:NAMA_FILE,
               datasets: [{
-                  label: NAMA_FILE,
+                  label: USER,
                   data: JUMLAH,
                   borderWidth: 1,
                   backgroundColor: ["#a3c7c9","#889d9e","#647678","#a1887f","#ffab91","#ffb74d","#ffd54f"],

@@ -61,6 +61,9 @@ if(auth()->user()->id_role != 1){
 	      <li class="nav-item">
 	        <a class="nav-link" href="/dashboardAdmin/category">Category </a>
 	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="/dashboardAdmin/user">User </a>
+	      </li>
 	      <li class="nav-item dropdown">
 	        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 	          Browse

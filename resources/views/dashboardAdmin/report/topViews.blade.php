@@ -5,7 +5,7 @@
 
 <div class="row">
 
-   	<div class="col-md-6 col-md-offset-1">
+   	<div class="col-md-8 col-md-offset-1">
        	<div class="panel panel-default">
            <div class="panel-heading"><b>Top Users Views File </b></div>
            <div class="panel-body">
