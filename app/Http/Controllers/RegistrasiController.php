@@ -27,6 +27,6 @@ class RegistrasiController extends Controller
 
         auth()->login($user);
         
-        return redirect()->to('/dashboardUser');
+        return redirect()->to('/dashboardUser/home');
     }
 }
